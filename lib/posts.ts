@@ -12,6 +12,7 @@ export interface PostMeta {
   description: string
   date: string
   keyword: string
+  phase?: string
 }
 
 export function getAllPostSlugs(): string[] {
@@ -34,6 +35,7 @@ export function getAllPostsMeta(): PostMeta[] {
       description: data.description ?? "",
       date: data.date ?? "",
       keyword: data.keyword ?? "",
+      phase: data.phase ?? undefined,
     }
   })
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -53,6 +55,7 @@ export async function getPostBySlug(slug: string) {
     description: data.description ?? "",
     date: data.date ?? "",
     keyword: data.keyword ?? "",
+    phase: data.phase ?? undefined,
     contentHtml,
   }
 }

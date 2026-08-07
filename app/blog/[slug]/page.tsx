@@ -2,6 +2,9 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts"
 import { LineCTA } from "@/components/LineCTA"
+import { AuthorBio } from "@/components/AuthorBio"
+import { RelatedPosts } from "@/components/RelatedPosts"
+import { PhaseFlowDiagram } from "@/components/PhaseFlowDiagram"
 
 export async function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }))
@@ -34,7 +37,7 @@ export default async function BlogPost({
   const post = await getPostBySlug(slug)
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 py-16">
+    <main className="flex-1 text-white px-6 py-16">
       <article className="max-w-[720px] mx-auto">
         <Link
           href="/"
@@ -48,12 +51,16 @@ export default async function BlogPost({
           {post.title}
         </h1>
 
+        <PhaseFlowDiagram highlight={post.phase} />
+
         <div
           className="prose prose-invert prose-neutral max-w-none prose-headings:font-semibold prose-a:text-emerald-400"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
 
         <LineCTA />
+        <AuthorBio />
+        <RelatedPosts currentSlug={post.slug} />
       </article>
     </main>
   )

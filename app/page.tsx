@@ -5,10 +5,10 @@ export default function Home() {
   const posts = getAllPostsMeta()
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 py-16">
+    <main className="flex-1 text-white px-6 py-16">
       <div className="max-w-[720px] mx-auto">
         <p className="text-xs font-mono uppercase tracking-[0.2em] text-emerald-400 mb-3">
-          筋トレ科学ラボ
+          Science-based
         </p>
         <h1 className="text-3xl font-bold mb-2">ブログ</h1>
         <p className="text-neutral-400 mb-14">
