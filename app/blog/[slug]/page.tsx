@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts"
-import { fetchPexelsPhoto } from "@/lib/pexels"
+import { fetchPexelsPhoto, pickQueryForPost } from "@/lib/pexels"
 import { LineCTA } from "@/components/LineCTA"
 import { AuthorBio } from "@/components/AuthorBio"
 import { RelatedPosts } from "@/components/RelatedPosts"
@@ -51,7 +51,7 @@ export default async function BlogPost({
 
   const post = await getPostBySlug(slug)
   const url = `${SITE_URL}/blog/${post.slug}`
-  const heroPhoto = await fetchPexelsPhoto(`gym ${post.phase || "training"} dark`)
+  const heroPhoto = await fetchPexelsPhoto(pickQueryForPost(post.slug, post.phase))
 
   const jsonLd = {
     "@context": "https://schema.org",

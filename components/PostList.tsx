@@ -2,9 +2,12 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import type { PostMeta } from "@/lib/posts"
 
-export function PostList({ posts }: { posts: PostMeta[] }) {
+type PostWithThumbnail = PostMeta & { thumbnailUrl?: string }
+
+export function PostList({ posts }: { posts: PostWithThumbnail[] }) {
   const [query, setQuery] = useState("")
 
   const filtered = posts.filter((post) => {
@@ -32,18 +35,30 @@ export function PostList({ posts }: { posts: PostMeta[] }) {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group grid grid-cols-1 md:grid-cols-[110px_1fr] gap-2 md:gap-8 py-8 border-b border-rule"
+              className="group flex gap-5 md:gap-8 py-8 border-b border-rule items-start"
             >
-              <div className="font-mono text-[12px] text-mute space-y-1">
-                <p>{post.date}</p>
-                {post.phase && <p className="text-steel">{post.phase}</p>}
-                <p>約{post.readingTime}分</p>
+              <div className="relative w-[110px] md:w-[180px] aspect-[4/3] bg-paper-raised overflow-hidden flex-shrink-0">
+                {post.thumbnailUrl && (
+                  <Image
+                    src={post.thumbnailUrl}
+                    alt=""
+                    fill
+                    sizes="180px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                )}
               </div>
-              <div>
-                <h2 className="text-[19px] font-semibold text-ink leading-snug group-hover:text-steel transition-colors">
+
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-mute mb-2">
+                  <span>{post.date}</span>
+                  {post.phase && <span className="text-steel">{post.phase}</span>}
+                  <span className="hidden md:inline">約{post.readingTime}分</span>
+                </div>
+                <h2 className="text-[17px] md:text-[19px] font-semibold text-ink leading-snug group-hover:text-steel transition-colors">
                   {post.title}
                 </h2>
-                <p className="text-[15px] text-mute mt-2.5 leading-relaxed max-w-[560px]">
+                <p className="text-[14px] md:text-[15px] text-mute mt-2 leading-relaxed max-w-[560px] hidden sm:block">
                   {post.description}
                 </p>
               </div>

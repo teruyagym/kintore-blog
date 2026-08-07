@@ -1,12 +1,20 @@
 import Image from "next/image"
 import { getAllPostsMeta } from "@/lib/posts"
+import { fetchPexelsPhoto, pickQueryForPost } from "@/lib/pexels"
 import { PostList } from "@/components/PostList"
 
 const HERO_IMAGE =
   "https://images.pexels.com/photos/6389886/pexels-photo-6389886.jpeg?auto=compress&cs=tinysrgb&h=1400&w=2200&fit=crop"
 
-export default function Home() {
+export default async function Home() {
   const posts = getAllPostsMeta()
+
+  const postsWithPhotos = await Promise.all(
+    posts.map(async (post) => {
+      const photo = await fetchPexelsPhoto(pickQueryForPost(post.slug, post.phase))
+      return { ...post, thumbnailUrl: photo?.url }
+    })
+  )
 
   return (
     <main className="flex-1">
@@ -42,7 +50,7 @@ export default function Home() {
 
       <div className="px-6">
         <div className="max-w-[760px] mx-auto pt-16">
-          <PostList posts={posts} />
+          <PostList posts={postsWithPhotos} />
         </div>
       </div>
     </main>
