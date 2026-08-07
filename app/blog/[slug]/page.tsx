@@ -1,6 +1,8 @@
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts"
+import { fetchPexelsPhoto } from "@/lib/pexels"
 import { LineCTA } from "@/components/LineCTA"
 import { AuthorBio } from "@/components/AuthorBio"
 import { RelatedPosts } from "@/components/RelatedPosts"
@@ -49,6 +51,7 @@ export default async function BlogPost({
 
   const post = await getPostBySlug(slug)
   const url = `${SITE_URL}/blog/${post.slug}`
+  const heroPhoto = await fetchPexelsPhoto(`gym ${post.phase || "training"} dark`)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -63,26 +66,53 @@ export default async function BlogPost({
   }
 
   return (
-    <main className="flex-1 px-6 pb-24">
-      <article className="max-w-[760px] mx-auto">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+    <main className="flex-1 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
-        <div className="pt-10 pb-8">
-          <Breadcrumbs current={post.title} />
-          <Link
-            href="/"
-            className="font-mono text-[12px] text-mute hover:text-steel transition-colors"
-          >
-            ← 記事一覧
-          </Link>
+      {/* Hero image */}
+      <div className="relative h-[46vh] min-h-[320px] md:min-h-[420px] w-full overflow-hidden bg-ink">
+        {heroPhoto && (
+          <Image
+            src={heroPhoto.url}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-60"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/10" />
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-[900px] mx-auto w-full px-6 pb-10">
+            {post.phase && (
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-flag mb-4">
+                {post.phase}
+              </p>
+            )}
+            <h1 className="text-[28px] md:text-[44px] font-bold leading-[1.25] tracking-tight text-paper max-w-[760px]">
+              {post.title}
+            </h1>
+          </div>
         </div>
+        {heroPhoto && (
+          <a
+            href={heroPhoto.photographerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-2 right-3 font-mono text-[10px] text-paper/50 hover:text-paper/80"
+          >
+            Photo: {heroPhoto.photographer} / Pexels
+          </a>
+        )}
+      </div>
 
-        <h1 className="text-[30px] md:text-[38px] font-semibold leading-[1.4] tracking-tight text-ink mb-8">
-          {post.title}
-        </h1>
+      <article className="max-w-[760px] mx-auto px-6">
+        <div className="pt-8 pb-6">
+          <Breadcrumbs current={post.title} />
+        </div>
 
         <div className="flex items-center gap-5 font-mono text-[12px] text-mute pb-10 border-b border-rule mb-10">
           <span>{post.date}</span>

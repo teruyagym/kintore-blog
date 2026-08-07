@@ -1,28 +1,47 @@
+import Image from "next/image"
 import { getAllPostsMeta } from "@/lib/posts"
 import { PostList } from "@/components/PostList"
+
+const HERO_IMAGE =
+  "https://images.pexels.com/photos/6389886/pexels-photo-6389886.jpeg?auto=compress&cs=tinysrgb&h=1400&w=2200&fit=crop"
 
 export default function Home() {
   const posts = getAllPostsMeta()
 
   return (
-    <main className="flex-1 px-6">
-      <div className="max-w-[760px] mx-auto">
-        {/* Hero */}
-        <section className="pt-16 pb-14 md:pt-20 md:pb-16 border-b border-rule">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-steel mb-5">
-            Body Flow Report — Vol. {String(posts.length).padStart(2, "0")}
-          </p>
-          <h1 className="text-[32px] md:text-[40px] font-semibold leading-[1.35] tracking-tight text-ink max-w-[560px]">
-            体は、努力ではなく
-            <br />
-            仕組みで変わる。
-          </h1>
-          <p className="text-[16px] text-mute leading-[1.9] mt-6 max-w-[480px]">
-            筋トレ・栄養・体の仕組みを、気合いや根性ではなく、刺激・摂取・消化吸収・代謝・回復という5つの工程から読み解きます。
-          </p>
-        </section>
+    <main className="flex-1">
+      {/* Hero */}
+      <section className="relative h-[86vh] min-h-[560px] flex items-end overflow-hidden bg-ink">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-70"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />
 
-        <div className="pt-14">
+        <div className="relative z-10 w-full px-6 pb-16 md:pb-20">
+          <div className="max-w-[1000px] mx-auto">
+            <p className="font-mono text-[12px] uppercase tracking-[0.25em] text-flag mb-6">
+              Body Flow Report — Vol. {String(posts.length).padStart(2, "0")}
+            </p>
+            <h1 className="text-[52px] sm:text-[72px] md:text-[104px] font-bold leading-[0.95] tracking-tight text-paper">
+              体は、努力
+              <br />
+              じゃない。
+            </h1>
+            <p className="text-[16px] md:text-[19px] text-paper/80 leading-[1.8] mt-8 max-w-[440px]">
+              筋トレ・栄養・体の仕組みを、気合いや根性ではなく、刺激・摂取・消化吸収・代謝・回復という5つの工程から読み解きます。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="px-6">
+        <div className="max-w-[760px] mx-auto pt-16">
           <PostList posts={posts} />
         </div>
       </div>
