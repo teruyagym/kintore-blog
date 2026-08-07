@@ -14,7 +14,7 @@ export function RelatedPosts({ currentSlug }: { currentSlug: string }) {
       <div className="space-y-6">
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
-            <h3 className="text-base font-semibold text-white group-hover:text-emerald-400 transition-colors">
+            <h3 className="text-base font-semibold text-neutral-900 group-hover:text-emerald-600 transition-colors">
               {post.title}
             </h3>
             <p className="text-xs text-neutral-500 mt-1 leading-relaxed">

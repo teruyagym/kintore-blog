@@ -8,8 +8,8 @@ const phases = [
 
 export function PhaseFlowDiagram({ highlight }: { highlight?: string }) {
   return (
-    <div className="not-prose my-10 p-6 rounded-2xl border border-neutral-800 bg-neutral-950">
-      <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-neutral-500 mb-6">
+    <div className="not-prose my-10 p-6 rounded-2xl border border-neutral-200 bg-neutral-50">
+      <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-neutral-400 mb-6">
         筋肉が作られる5つの段階
       </p>
       <div className="flex flex-col md:flex-row md:items-stretch gap-2">
@@ -20,23 +20,23 @@ export function PhaseFlowDiagram({ highlight }: { highlight?: string }) {
               <div
                 className={`flex-1 p-3 rounded-xl border text-center ${
                   isHighlight
-                    ? "border-emerald-500 bg-emerald-500/10"
-                    : "border-neutral-800 bg-neutral-900"
+                    ? "border-emerald-500 bg-emerald-50"
+                    : "border-neutral-200 bg-white"
                 }`}
               >
                 <p
                   className={`text-sm font-semibold ${
-                    isHighlight ? "text-emerald-400" : "text-neutral-300"
+                    isHighlight ? "text-emerald-700" : "text-neutral-600"
                   }`}
                 >
                   {phase.key}
                 </p>
-                <p className="text-[10px] text-neutral-500 mt-1 leading-snug hidden md:block">
+                <p className="text-[10px] text-neutral-400 mt-1 leading-snug hidden md:block">
                   {phase.desc}
                 </p>
               </div>
               {i < phases.length - 1 && (
-                <span className="text-neutral-700 text-sm flex-shrink-0 md:rotate-0 rotate-90">
+                <span className="text-neutral-300 text-sm flex-shrink-0 md:rotate-0 rotate-90">
                   →
                 </span>
               )}
@@ -45,7 +45,7 @@ export function PhaseFlowDiagram({ highlight }: { highlight?: string }) {
         })}
       </div>
       {highlight && (
-        <p className="text-xs text-emerald-400/80 mt-4">
+        <p className="text-xs text-emerald-700 mt-4">
           ※ この記事で扱っているのは主に「{highlight}」の段階です
         </p>
       )}
