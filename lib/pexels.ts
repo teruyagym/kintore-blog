@@ -26,9 +26,9 @@ function hashString(str: string): number {
   return Math.abs(hash)
 }
 
-export function pickQueryForPost(slug: string, phase?: string): string {
+export function pickQueryForPost(slug: string, phase?: string, offset = 0): string {
   const pool = (phase && PHASE_QUERIES[phase]) || DEFAULT_QUERIES
-  const index = hashString(slug) % pool.length
+  const index = (hashString(slug) + offset) % pool.length
   return pool[index]
 }
 

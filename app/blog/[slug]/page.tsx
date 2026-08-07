@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { getAllPostSlugs, getPostBySlug } from "@/lib/posts"
+import { getAllPostSlugs, getPostBySlug, insertMidContentImage } from "@/lib/posts"
 import { fetchPexelsPhoto, pickQueryForPost } from "@/lib/pexels"
 import { LineCTA } from "@/components/LineCTA"
 import { AuthorBio } from "@/components/AuthorBio"
@@ -11,6 +11,15 @@ import { TableOfContents } from "@/components/TableOfContents"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://kintore-blog.vercel.app"
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+}
 
 export async function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }))
@@ -52,6 +61,17 @@ export default async function BlogPost({
   const post = await getPostBySlug(slug)
   const url = `${SITE_URL}/blog/${post.slug}`
   const heroPhoto = await fetchPexelsPhoto(pickQueryForPost(post.slug, post.phase))
+  const bodyPhoto = await fetchPexelsPhoto(pickQueryForPost(post.slug, post.phase, 1))
+
+  const contentHtml = bodyPhoto
+    ? insertMidContentImage(
+        post.contentHtml,
+        `<figure class="not-prose my-10 -mx-6 md:mx-0">
+          <img src="${escapeHtml(bodyPhoto.url)}" alt="${escapeHtml(bodyPhoto.alt)}" loading="lazy" class="w-full aspect-[16/9] object-cover md:rounded-sm" />
+          <figcaption class="mt-2 text-right font-mono text-[10px] text-mute">Photo: ${escapeHtml(bodyPhoto.photographer)} / Pexels</figcaption>
+        </figure>`
+      )
+    : post.contentHtml
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -131,21 +151,45 @@ export default async function BlogPost({
           )}
         </div>
 
-        <PhaseFlowDiagram highlight={post.phase} />
-
         <TableOfContents items={post.toc} />
 
         <div
           className="prose prose-neutral max-w-none text-[17px] leading-[1.95]
             prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink
             prose-h2:text-[22px] prose-h2:mt-14 prose-h2:mb-5 prose-h2:pt-8 prose-h2:border-t prose-h2:border-rule
+            prose-h2:flex prose-h2:items-center prose-h2:gap-3
+            [&_h2]:before:content-[''] [&_h2]:before:block [&_h2]:before:w-[9px] [&_h2]:before:h-[9px] [&_h2]:before:bg-flag [&_h2]:before:flex-shrink-0
+            prose-h3:text-[18px] prose-h3:mt-8 prose-h3:mb-3
             prose-p:text-ink prose-p:leading-[1.95] prose-p:my-5
-            prose-strong:text-ink prose-strong:font-semibold
+            prose-strong:text-ink prose-strong:font-semibold prose-strong:bg-steel-light prose-strong:px-1 prose-strong:box-decoration-clone
             prose-a:text-steel prose-a:no-underline hover:prose-a:underline
             prose-li:text-ink prose-li:leading-[1.9] prose-li:my-1.5
-            prose-ul:my-6"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            prose-ol:my-8 prose-ol:p-0 prose-ol:list-none prose-ol:border prose-ol:border-rule prose-ol:divide-y prose-ol:divide-rule
+            [&_ol]:bg-paper-raised/40
+            [&_ol>li]:relative [&_ol>li]:pl-16 [&_ol>li]:pr-6 [&_ol>li]:py-5 [&_ol>li]:my-0
+            [&_ol]:[counter-reset:pt]
+            [&_ol>li]:[counter-increment:pt]
+            [&_ol>li:before]:content-[counter(pt)] [&_ol>li:before]:absolute [&_ol>li:before]:left-5 [&_ol>li:before]:top-5
+            [&_ol>li:before]:font-mono [&_ol>li:before]:text-[13px] [&_ol>li:before]:font-semibold [&_ol>li:before]:text-steel
+            [&_ol>li:before]:w-7 [&_ol>li:before]:h-7 [&_ol>li:before]:rounded-full [&_ol>li:before]:border [&_ol>li:before]:border-steel
+            [&_ol>li:before]:flex [&_ol>li:before]:items-center [&_ol>li:before]:justify-center
+            prose-ul:my-8 prose-ul:p-0 prose-ul:list-none prose-ul:border prose-ul:border-rule prose-ul:divide-y prose-ul:divide-rule
+            [&_ul]:bg-paper-raised/40
+            [&_ul>li]:relative [&_ul>li]:pl-16 [&_ul>li]:pr-6 [&_ul>li]:py-4 [&_ul>li]:my-0
+            [&_ul>li:before]:content-['✓'] [&_ul>li:before]:absolute [&_ul>li:before]:left-5 [&_ul>li:before]:top-4
+            [&_ul>li:before]:text-[12px] [&_ul>li:before]:font-bold [&_ul>li:before]:text-paper
+            [&_ul>li:before]:w-6 [&_ul>li:before]:h-6 [&_ul>li:before]:rounded-full [&_ul>li:before]:bg-steel
+            [&_ul>li:before]:flex [&_ul>li:before]:items-center [&_ul>li:before]:justify-center
+            prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:border-l-0
+            [&_blockquote]:relative [&_blockquote]:my-8 [&_blockquote]:pl-14 [&_blockquote]:pr-6 [&_blockquote]:py-5
+            [&_blockquote]:bg-paper-raised/70 [&_blockquote]:border [&_blockquote]:border-rule
+            [&_blockquote]:before:content-['💡'] [&_blockquote]:before:absolute [&_blockquote]:before:left-5 [&_blockquote]:before:top-5 [&_blockquote]:before:text-[17px]
+            [&_blockquote_p]:text-[15px] [&_blockquote_p]:text-mute [&_blockquote_p]:leading-relaxed [&_blockquote_p]:my-0
+            [&_blockquote_strong]:text-ink"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
+
+        <PhaseFlowDiagram highlight={post.phase} />
 
         <LineCTA />
         <AuthorBio />

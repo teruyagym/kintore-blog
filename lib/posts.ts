@@ -74,6 +74,14 @@ export function getPostsByPhase(phase: string): PostMeta[] {
   return getAllPostsMeta().filter((p) => p.phase === phase)
 }
 
+export function insertMidContentImage(contentHtml: string, imageHtml: string): string {
+  const h2Positions = [...contentHtml.matchAll(/<h2 /g)]
+  if (h2Positions.length < 2) return contentHtml
+  const target = h2Positions[Math.floor(h2Positions.length / 2)]
+  if (target?.index === undefined) return contentHtml
+  return contentHtml.slice(0, target.index) + imageHtml + contentHtml.slice(target.index)
+}
+
 export async function getPostBySlug(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, "utf8")

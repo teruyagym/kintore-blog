@@ -1,4 +1,8 @@
-const LINE_ADD_LINK = "https://lin.ee/VlTmydv"
+"use client"
+
+import { sendGAEvent } from "@next/third-parties/google"
+
+const LINE_ADD_LINK = "https://lin.ee/yy3wvxe"
 
 export function LineCTA() {
   return (
@@ -18,6 +22,7 @@ export function LineCTA() {
         href={LINE_ADD_LINK}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => sendGAEvent("event", "line_click", { location: "article_cta" })}
         className="inline-block px-8 py-3.5 bg-paper text-steel font-semibold text-[14px] hover:opacity-90 transition-opacity"
       >
         公式LINEで無料診断を試す

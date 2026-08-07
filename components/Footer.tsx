@@ -1,5 +1,9 @@
+"use client"
+
+import { sendGAEvent } from "@next/third-parties/google"
+
 const YOUTUBE_URL = "https://www.youtube.com/channel/UCdKE82HB0yptEo1pEU066kg"
-const LINE_ADD_LINK = "https://lin.ee/VlTmydv"
+const LINE_ADD_LINK = "https://lin.ee/yy3wvxe"
 
 export function Footer() {
   return (
@@ -13,7 +17,13 @@ export function Footer() {
           <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-steel transition-colors">
             YouTube ↗
           </a>
-          <a href={LINE_ADD_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-steel transition-colors">
+          <a
+            href={LINE_ADD_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => sendGAEvent("event", "line_click", { location: "footer" })}
+            className="hover:text-steel transition-colors"
+          >
             公式LINE ↗
           </a>
         </div>
