@@ -4,18 +4,21 @@ export function TableOfContents({ items }: { items: TocItem[] }) {
   if (items.length === 0) return null
 
   return (
-    <nav className="not-prose my-10 p-5 rounded-2xl border border-neutral-200 bg-neutral-50">
-      <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-neutral-400 mb-3">
-        目次
+    <nav className="not-prose my-12 py-7 border-t border-b border-rule">
+      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute mb-4">
+        Contents
       </p>
-      <ol className="space-y-2">
+      <ol className="space-y-2.5">
         {items.map((item, i) => (
-          <li key={item.id}>
+          <li key={item.id} className="flex items-baseline gap-3">
+            <span className="font-mono text-[12px] text-steel flex-shrink-0">
+              {String(i + 1).padStart(2, "0")}
+            </span>
             <a
               href={`#${item.id}`}
-              className="text-sm text-neutral-700 hover:text-emerald-600 transition-colors"
+              className="text-[15px] text-ink hover:text-steel transition-colors"
             >
-              {i + 1}. {item.text}
+              {item.text}
             </a>
           </li>
         ))}

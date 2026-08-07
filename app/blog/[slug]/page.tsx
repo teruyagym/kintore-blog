@@ -57,49 +57,63 @@ export default async function BlogPost({
     description: post.description,
     datePublished: post.date,
     dateModified: post.date,
-    author: {
-      "@type": "Organization",
-      name: "筋トレ科学ラボ",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "筋トレ科学ラボ",
-    },
+    author: { "@type": "Organization", name: "筋トレ科学ラボ" },
+    publisher: { "@type": "Organization", name: "筋トレ科学ラボ" },
     mainEntityOfPage: url,
   }
 
   return (
-    <main className="flex-1 text-neutral-900 px-6 py-16">
-      <article className="max-w-[720px] mx-auto">
+    <main className="flex-1 px-6 pb-24">
+      <article className="max-w-[760px] mx-auto">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <Breadcrumbs current={post.title} />
-
-        <Link
-          href="/"
-          className="text-sm text-neutral-400 hover:text-emerald-600 transition-colors"
-        >
-          ← ブログ一覧に戻る
-        </Link>
-
-        <div className="flex items-center gap-3 mt-8 mb-2">
-          <p className="text-xs text-neutral-400">{post.date}</p>
-          <span className="text-xs text-neutral-300">·</span>
-          <p className="text-xs text-neutral-400">約{post.readingTime}分で読めます</p>
+        <div className="pt-10 pb-8">
+          <Breadcrumbs current={post.title} />
+          <Link
+            href="/"
+            className="font-mono text-[12px] text-mute hover:text-steel transition-colors"
+          >
+            ← 記事一覧
+          </Link>
         </div>
-        <h1 className="text-3xl font-bold leading-tight mb-10 text-neutral-900">
+
+        <h1 className="text-[30px] md:text-[38px] font-semibold leading-[1.4] tracking-tight text-ink mb-8">
           {post.title}
         </h1>
+
+        <div className="flex items-center gap-5 font-mono text-[12px] text-mute pb-10 border-b border-rule mb-10">
+          <span>{post.date}</span>
+          <span className="w-1 h-1 rounded-full bg-rule" />
+          <span>約{post.readingTime}分で読めます</span>
+          {post.phase && (
+            <>
+              <span className="w-1 h-1 rounded-full bg-rule" />
+              <Link
+                href={`/category/${encodeURIComponent(post.phase)}`}
+                className="text-steel hover:underline"
+              >
+                {post.phase}
+              </Link>
+            </>
+          )}
+        </div>
 
         <PhaseFlowDiagram highlight={post.phase} />
 
         <TableOfContents items={post.toc} />
 
         <div
-          className="prose prose-neutral max-w-none prose-headings:font-semibold prose-a:text-emerald-600"
+          className="prose prose-neutral max-w-none text-[17px] leading-[1.95]
+            prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink
+            prose-h2:text-[22px] prose-h2:mt-14 prose-h2:mb-5 prose-h2:pt-8 prose-h2:border-t prose-h2:border-rule
+            prose-p:text-ink prose-p:leading-[1.95] prose-p:my-5
+            prose-strong:text-ink prose-strong:font-semibold
+            prose-a:text-steel prose-a:no-underline hover:prose-a:underline
+            prose-li:text-ink prose-li:leading-[1.9] prose-li:my-1.5
+            prose-ul:my-6"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
 

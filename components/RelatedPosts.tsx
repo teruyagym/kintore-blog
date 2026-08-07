@@ -7,19 +7,23 @@ export function RelatedPosts({ currentSlug }: { currentSlug: string }) {
   if (posts.length === 0) return null
 
   return (
-    <div className="mt-16">
-      <p className="text-xs font-mono uppercase tracking-[0.15em] text-neutral-500 mb-6">
-        関連記事
+    <div className="mt-14 pt-8 border-t border-rule">
+      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-mute mb-6">
+        Related
       </p>
-      <div className="space-y-6">
+      <div>
         {posts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
-            <h3 className="text-base font-semibold text-neutral-900 group-hover:text-emerald-600 transition-colors">
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            className="group flex items-baseline gap-4 py-3.5 border-b border-rule"
+          >
+            <span className="font-mono text-[11px] text-mute flex-shrink-0 hidden sm:block">
+              {post.date}
+            </span>
+            <h3 className="text-[15px] font-medium text-ink group-hover:text-steel transition-colors">
               {post.title}
             </h3>
-            <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
-              {post.description}
-            </p>
           </Link>
         ))}
       </div>

@@ -1,18 +1,31 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #18181b;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-paper: #faf9f6;
+  --color-paper-raised: #f3f1eb;
+  --color-ink: #1c1e1b;
+  --color-mute: #6b6558;
+  --color-steel: #1d4e4a;
+  --color-steel-light: #e8efee;
+  --color-flag: #c1441e;
+  --color-flag-light: #fbeae4;
+  --color-rule: #ddd9ce;
+  --font-sans: var(--font-plex-jp);
+  --font-mono: var(--font-plex-mono);
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-steel);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-steel);
+  outline-offset: 2px;
 }

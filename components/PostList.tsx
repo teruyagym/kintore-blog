@@ -13,40 +13,40 @@ export function PostList({ posts }: { posts: PostMeta[] }) {
   })
 
   return (
-    <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="記事を検索（例：タンパク質、40代、回復）"
-        className="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-emerald-400 mb-14"
-      />
+    <div className="pb-20">
+      <div className="relative mb-14">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="記事を検索（例：タンパク質、40代、回復）"
+          className="w-full px-0 py-3 bg-transparent border-0 border-b border-rule text-[15px] text-ink placeholder:text-mute/70 focus:outline-none focus:border-steel transition-colors"
+        />
+      </div>
 
       {filtered.length === 0 ? (
-        <p className="text-sm text-neutral-400">該当する記事が見つかりませんでした。</p>
+        <p className="text-[15px] text-mute">該当する記事が見つかりませんでした。</p>
       ) : (
-        <div className="space-y-10">
+        <div>
           {filtered.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
-              <div className="flex items-center gap-3 mb-1">
-                <p className="text-xs text-neutral-400">{post.date}</p>
-                {post.phase && (
-                  <span className="text-[10px] font-mono uppercase tracking-wide text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                    {post.phase}
-                  </span>
-                )}
-                {post.readingTime && (
-                  <span className="text-[10px] text-neutral-400">
-                    約{post.readingTime}分で読めます
-                  </span>
-                )}
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group grid grid-cols-1 md:grid-cols-[110px_1fr] gap-2 md:gap-8 py-8 border-b border-rule"
+            >
+              <div className="font-mono text-[12px] text-mute space-y-1">
+                <p>{post.date}</p>
+                {post.phase && <p className="text-steel">{post.phase}</p>}
+                <p>約{post.readingTime}分</p>
               </div>
-              <h2 className="text-xl font-semibold text-neutral-900 group-hover:text-emerald-600 transition-colors">
-                {post.title}
-              </h2>
-              <p className="text-sm text-neutral-500 mt-2 leading-relaxed">
-                {post.description}
-              </p>
+              <div>
+                <h2 className="text-[19px] font-semibold text-ink leading-snug group-hover:text-steel transition-colors">
+                  {post.title}
+                </h2>
+                <p className="text-[15px] text-mute mt-2.5 leading-relaxed max-w-[560px]">
+                  {post.description}
+                </p>
+              </div>
             </Link>
           ))}
         </div>
