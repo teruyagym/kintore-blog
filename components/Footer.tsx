@@ -1,4 +1,4 @@
-const YOUTUBE_URL = "https://www.youtube.com/@kintorekagakulab"
+const YOUTUBE_URL = "https://www.youtube.com/channel/UCdKE82HB0yptEo1pEU066kg"
 const LINE_ADD_LINK = "https://lin.ee/VlTmydv"
 
 export function Footer() {
