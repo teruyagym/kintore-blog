@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     template: "%s｜筋トレ科学ラボ",
   },
   description: "筋トレ・栄養・体の仕組みを、科学的根拠から解説するブログです。",
+  verification: {
+    google: "PFmPfjytuqTecbzFsiKrXFMx0l_T08hRhhjaqKD2ql0",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
