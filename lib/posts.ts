@@ -3,6 +3,7 @@ import path from "path"
 import matter from "gray-matter"
 import { remark } from "remark"
 import html from "remark-html"
+import { renderDiagramBlocks } from "./diagrams"
 
 const postsDirectory = path.join(process.cwd(), "content/posts")
 
@@ -88,7 +89,8 @@ export async function getPostBySlug(slug: string) {
   const { data, content } = matter(fileContents)
 
   const processed = await remark().use(html).process(content)
-  const { html: contentHtml, toc } = addHeadingIds(processed.toString())
+  const withDiagrams = renderDiagramBlocks(processed.toString())
+  const { html: contentHtml, toc } = addHeadingIds(withDiagrams)
 
   return {
     slug,
