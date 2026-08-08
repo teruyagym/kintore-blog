@@ -37,9 +37,9 @@ export default async function Home() {
               Body Flow Report — Vol. {String(posts.length).padStart(2, "0")}
             </p>
             <h1 className="text-[52px] sm:text-[72px] md:text-[104px] font-bold leading-[0.95] tracking-tight text-paper">
-              体は、努力
+              変わらないのは、
               <br />
-              じゃない。
+              努力不足じゃない。
             </h1>
             <p className="text-[16px] md:text-[19px] text-paper/80 leading-[1.8] mt-8 max-w-[440px]">
               筋トレ・栄養・体の仕組みを、気合いや根性ではなく、刺激・摂取・消化吸収・代謝・回復という5つの工程から読み解きます。
