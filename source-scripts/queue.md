@@ -7,7 +7,6 @@
 
 ## 未使用
 
-- episode79-manseiensho.md（慢性炎症、代謝/回復フェーズ）
 - episode82-cho-naikankyou-7sen.md（腸内環境7選、消化吸収フェーズ）
 - episode73-kinniku-sign-7.md（筋肉がつく前兆サイン7選、回復フェーズ）
 - episode70-bulkup-10sen.md（バルクアップ10選、摂取フェーズ）
@@ -21,7 +20,7 @@
 
 ## 使用済み
 
-（まだなし）
+- 2026-06-28-episode79-manseiensho.md（慢性炎症、代謝フェーズ）→ 2026-08-10公開: content/posts/manseiensho-kinniku-fuenai.md
 
 ## 除外方針
 
