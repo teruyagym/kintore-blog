@@ -78,5 +78,21 @@
     "photographer": "Liliana Drew",
     "photographerUrl": "https://www.pexels.com/@liliana-drew",
     "query": "sweat workout fitness"
+  },
+  "cho-naikankyou-kinniku-tsukanai#0": {
+    "id": 33323285,
+    "url": "https://images.pexels.com/photos/33323285/pexels-photo-33323285.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "alt": "Delicious fresh salad with cherry tomatoes, nuts, and mozzarella in a bowl.",
+    "photographer": "Aleson Padilha",
+    "photographerUrl": "https://www.pexels.com/@aleson-padilha-945919991",
+    "query": "healthy salad bowl"
+  },
+  "cho-naikankyou-kinniku-tsukanai#1": {
+    "id": 36689348,
+    "url": "https://images.pexels.com/photos/36689348/pexels-photo-36689348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "alt": "A cozy setup featuring ginger lemon tea with honey, promoting wellness and comfort.",
+    "photographer": "Lusynda <3",
+    "photographerUrl": "https://www.pexels.com/@lusynda-3-2152310256",
+    "query": "digestive health food"
   }
 }
