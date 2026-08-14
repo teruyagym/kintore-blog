@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getPostsByPhase } from "@/lib/posts"
-import { fetchPexelsPhoto, pickQueryForPost } from "@/lib/pexels"
+import { getUniquePhoto } from "@/lib/pexels"
 import { PostList } from "@/components/PostList"
 
 const ALL_PHASES = ["刺激", "摂取", "消化吸収", "代謝", "回復"]
@@ -32,12 +32,12 @@ export default async function CategoryPage({
   if (!ALL_PHASES.includes(decodedPhase)) notFound()
 
   const posts = getPostsByPhase(decodedPhase)
-  const postsWithPhotos = await Promise.all(
-    posts.map(async (post) => {
-      const photo = await fetchPexelsPhoto(pickQueryForPost(post.slug, post.phase))
-      return { ...post, thumbnailUrl: photo?.url }
-    })
-  )
+  // レジストリの読み書きが競合しないよう、並行実行せず1件ずつ処理する
+  const postsWithPhotos = []
+  for (const post of posts) {
+    const photo = await getUniquePhoto(post.slug, post.phase)
+    postsWithPhotos.push({ ...post, thumbnailUrl: photo?.url })
+  }
 
   return (
     <main className="flex-1 px-6 pb-24">

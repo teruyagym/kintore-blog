@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getAllPostSlugs, getPostBySlug, insertMidContentImage } from "@/lib/posts"
-import { fetchPexelsPhoto, pickQueryForPost } from "@/lib/pexels"
+import { getUniquePhoto } from "@/lib/pexels"
 import { LineCTA } from "@/components/LineCTA"
 import { AuthorBio } from "@/components/AuthorBio"
 import { RelatedPosts } from "@/components/RelatedPosts"
@@ -60,8 +60,8 @@ export default async function BlogPost({
 
   const post = await getPostBySlug(slug)
   const url = `${SITE_URL}/blog/${post.slug}`
-  const heroPhoto = await fetchPexelsPhoto(pickQueryForPost(post.slug, post.phase))
-  const bodyPhoto = await fetchPexelsPhoto(pickQueryForPost(post.slug, post.phase, 1))
+  const heroPhoto = await getUniquePhoto(post.slug, post.phase)
+  const bodyPhoto = await getUniquePhoto(post.slug, post.phase, 1)
 
   const contentHtml = bodyPhoto
     ? insertMidContentImage(
