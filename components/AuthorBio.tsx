@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image"
+import { sendGAEvent } from "@next/third-parties/google"
 
 const YOUTUBE_URL = "https://www.youtube.com/channel/UCdKE82HB0yptEo1pEU066kg"
 const CHANNEL_ICON =
@@ -34,6 +37,7 @@ export function AuthorBio() {
               href={YOUTUBE_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => sendGAEvent("event", "youtube_click", { location: "author_bio" })}
               className="inline-flex items-center gap-2 bg-flag text-paper px-5 py-2.5 font-mono text-[12px] font-semibold hover:opacity-90 transition-opacity"
             >
               <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current" aria-hidden="true">

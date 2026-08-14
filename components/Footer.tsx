@@ -14,7 +14,13 @@ export function Footer() {
           筋トレ・栄養・体の仕組みを、気合いや根性ではなく科学的根拠から解説するチャンネル・ブログです。
         </p>
         <div className="flex gap-8 font-mono text-[13px] text-mute mb-10">
-          <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-steel transition-colors">
+          <a
+            href={YOUTUBE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => sendGAEvent("event", "youtube_click", { location: "footer" })}
+            className="hover:text-steel transition-colors"
+          >
             YouTube ↗
           </a>
           <a
