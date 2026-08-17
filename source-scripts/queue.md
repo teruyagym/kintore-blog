@@ -7,7 +7,6 @@
 
 ## 未使用
 
-- episode70-bulkup-10sen.md（バルクアップ10選、摂取フェーズ）
 - episode63-protein-2g-muda.md（プロテイン体重×2gは無駄、摂取フェーズ）
 - episode74-kinpidai-kanzen-kouryaku.md（筋肥大完全攻略、総合）
 - episode65-uso7.md（筋トレの嘘7選、総合）
@@ -18,6 +17,7 @@
 
 ## 使用済み
 
+- 2026-06-08-episode70-bulkup-10sen.md（バルクアップ10選、摂取フェーズ）→ 2026-08-17公開: content/posts/tabete-mo-taiju-fuenai-riyuu.md
 - 2026-06-28-episode79-manseiensho.md（慢性炎症、代謝フェーズ）→ 2026-08-10公開: content/posts/manseiensho-kinniku-fuenai.md
 - 2026-06-16-episode73-kinniku-sign-7.md（筋肉がつく前兆サイン7選、回復フェーズ）→ 2026-08-10公開: content/posts/kinniku-tsuitekita-sign.md
 - 2026-07-07-episode82-cho-naikankyou-7sen.md（腸内環境7選、消化吸収フェーズ）→ 2026-08-13公開: content/posts/cho-naikankyou-kinniku-tsukanai.md
