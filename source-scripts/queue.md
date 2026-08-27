@@ -10,11 +10,11 @@
 - episode63-protein-2g-muda.md（プロテイン体重×2gは無駄、摂取フェーズ）
 - episode74-kinpidai-kanzen-kouryaku.md（筋肥大完全攻略、総合）
 - episode88-onaka-dake-ochinai-7sen.md（お腹だけ落ちない7選、代謝フェーズ）
-- episode61-oidoikonde-kawaranai.md（追い込んでも変わらない、刺激フェーズ）
 - episode93-koka-nibai-3gijutsu.md（効果が2倍になる3つの技術、刺激フェーズ）
 
 ## 使用済み
 
+- 2026-05-18-episode61-oidoikonde-kawaranai.md（追い込んでも変わらない、回復フェーズ）→ 2026-08-27公開: content/posts/oikomisugi-kinnikutsuu-kinniku-fuenai.md
 - 2026-05-30-episode67-yameru-7sen.md（筋肉をつけたいなら今すぐやめること7選、総合）→ 2026-08-24公開: content/posts/kintore-kouka-kesu-seikatsu-shukan.md
 - 2026-05-25-episode65-uso7.md（筋トレの嘘7選、総合）→ 2026-08-20公開: content/posts/kintore-omoikomi-40dai.md
 - 2026-06-08-episode70-bulkup-10sen.md（バルクアップ10選、摂取フェーズ）→ 2026-08-17公開: content/posts/tabete-mo-taiju-fuenai-riyuu.md
