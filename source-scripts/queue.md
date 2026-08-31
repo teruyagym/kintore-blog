@@ -10,6 +10,17 @@
 - episode63-protein-2g-muda.md（プロテイン体重×2gは無駄、摂取フェーズ）
 - episode74-kinpidai-kanzen-kouryaku.md（筋肥大完全攻略、総合）
 - episode88-onaka-dake-ochinai-7sen.md（お腹だけ落ちない7選、代謝フェーズ）
+- episode64-tsuku-tsukanai-7differences.md（筋肉がつく人つかない人の違い7選、総合）
+- episode68-zettai-7sen.md（絶対NG7選、総合）
+- episode69-3months-7sen.md（3ヶ月続けても変わらない7選、総合）
+- episode78-kinniku-tsuku-hito-shokuji-10sen.md（筋肉がつく人の食事10選、摂取フェーズ）
+- episode80-tsukanai-hito-7sen.md（筋肉がつかない人の共通点7選、総合）
+- episode87-kinniku-tsukanai-ng-training-7sen.md（筋肉がつかないNGトレーニング7選、刺激フェーズ）
+- episode89-1nen-tsuzuketemo-kawaranai-7sen.md（1年続けても変わらない7選、総合）
+- episode92-mainichi-kintore-yamete.md（毎日筋トレをやめるべき理由、回復フェーズ）
+- episode95-seichou-hayai-hito-8sen.md（成長が早い人の特徴8選、総合）
+- episode100-seichou-5tsu-no-shikumi.md（筋肉が成長する5つの仕組み、総合）
+- episode101-shinjoushiki-5sen.md（筋トレの新常識5選、総合）
 
 ## 使用済み
 
