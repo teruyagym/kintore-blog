@@ -11,7 +11,6 @@
 - episode74-kinpidai-kanzen-kouryaku.md（筋肥大完全攻略、総合）
 - episode88-onaka-dake-ochinai-7sen.md（お腹だけ落ちない7選、代謝フェーズ）
 - episode68-zettai-7sen.md（絶対NG7選、総合）
-- episode78-kinniku-tsuku-hito-shokuji-10sen.md（筋肉がつく人の食事10選、摂取フェーズ）
 - episode80-tsukanai-hito-7sen.md（筋肉がつかない人の共通点7選、総合）
 - episode87-kinniku-tsukanai-ng-training-7sen.md（筋肉がつかないNGトレーニング7選、刺激フェーズ）
 - episode89-1nen-tsuzuketemo-kawaranai-7sen.md（1年続けても変わらない7選、総合）
@@ -21,6 +20,8 @@
 - episode101-shinjoushiki-5sen.md（筋トレの新常識5選、総合）
 
 ## 使用済み
+
+- 2026-06-27-episode78-kinniku-tsuku-hito-shokuji-10sen.md（筋肉がつく人の食事10選、摂取フェーズ）→ 2026-09-10公開: content/posts/kinniku-eiyoso-migaotoshi.md
 
 - 2026-06-04-episode69-3months-7sen.md（3ヶ月続けても変わらない7選、総合）→ 2026-09-07公開: content/posts/kinniku-switch-hairanai-riyuu.md
 - 2026-05-24-episode64-tsuku-tsukanai-7differences.md（筋肉がつく人つかない人の違い7選、総合）→ 2026-09-03公開: content/posts/kintore-seika-deru-hito-denai-hito.md
