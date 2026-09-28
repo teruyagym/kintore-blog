@@ -99,6 +99,7 @@ export async function getPostBySlug(slug: string) {
     date: data.date ?? "",
     keyword: data.keyword ?? "",
     phase: data.phase ?? undefined,
+    ctaImage: data.ctaImage as string | undefined,
     readingTime: estimateReadingTime(content),
     contentHtml,
     toc,

@@ -191,7 +191,7 @@ export default async function BlogPost({
 
         <PhaseFlowDiagram highlight={post.phase} />
 
-        <LineCTA />
+        <LineCTA showDiagnosticImage={post.ctaImage === "radar"} />
         <AuthorBio />
         <RelatedPosts currentSlug={post.slug} />
       </article>
