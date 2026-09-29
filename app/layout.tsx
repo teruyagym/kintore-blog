@@ -9,6 +9,8 @@ const plexJP = IBM_Plex_Sans_JP({
   variable: "--font-plex-jp",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  // 日本語フォントは文字範囲ごとに数百ファイルへ分割されるため、全件の先読み指定を出さない
+  preload: false,
 });
 
 const plexMono = IBM_Plex_Mono({

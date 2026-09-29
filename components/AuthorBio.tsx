@@ -32,6 +32,12 @@ export function AuthorBio() {
             「頑張っているのに変わらない」原因を、体の中で起きていることから読み解いています。
           </p>
 
+          <p className="mt-4 text-[13px] text-mute leading-relaxed">
+            <span className="font-semibold text-ink">執筆方針：</span>
+            主な主張には論文や公的機関の資料を出典として示し、研究で確かめられていることと、まだ分かっていないことを分けて書くよう、記事を順次見直しています。
+            記事の内容は一般的な情報であり、個別の診断や治療に代わるものではありません。
+          </p>
+
           <div className="mt-5">
             <a
               href={YOUTUBE_URL}
