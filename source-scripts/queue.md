@@ -49,6 +49,20 @@
 
 episode95（成長が早い人の特徴8選）を選定。8項目中、種目選び・週内ボリューム配分・専門家に頼る・クレアチン摂取・フォームチェックはフォーム/技術/サプリ寄りのため使わず、「マッスルメモリー（筋核）」と「体の内部環境」の2つの仕組みのみを核に、独自の記事として再構成した。
 
+## 選定メモ（2026-10-08）
+
+episode95が「使用済み」に移動した後、「未使用」の残り7本（episode63, 74, 88, 80, 87, 100, 101）を上から順に再検討したが、全て以下の理由で使用を見送った。新しい記事は作成せず、pushは行っていない。
+
+- episode63（プロテイン2g無駄）：仕組み解説の3本柱（一食の処理限界／胃酸・消化酵素／腸内環境）が、それぞれ`kinniku-switch-hairanai-riyuu.md`・`cho-naikankyou-kinniku-tsukanai.md`・`tanpakushitsu-tottemo-kinniku-tsukanai.md`と重複。
+- episode74（筋肥大完全攻略）：刺激・摂取・消化吸収・代謝・回復の5フェーズ総覧で、`kintore-kekka-denai-riyuu.md`とほぼ同内容。
+- episode88（お腹だけ落ちない7選）：内臓脂肪・皮下脂肪・ダイエット中心のテーマで、除外方針（脂肪系のみを主語にしない）に抵触。
+- episode80（つかない人の共通点7選）：7項目中、RIR・可動域はフォーム/技術寄り（除外方針に抵触）、タンパク質偏り・ビタミンミネラル不足は`kinniku-eiyoso-migaotoshi.md`、腸内環境は`cho-naikankyou-kinniku-tsukanai.md`/`tanpakushitsu-tottemo-kinniku-tsukanai.md`、回復の設計は`mainichi-kintore-kinniku-fuenai.md`/`oikomisugi-kinnikutsuu-kinniku-fuenai.md`/`kintore-tsuzuketemo-kawaranai-riyuu.md`と重複。実質的に独自に使える要素が残っていない。
+- episode87（NGトレーニング7選）：コンパウンド種目・フォーム・マシン対フリーウェイト・上げ下ろし速度・重量意識など、7項目すべてがフォーム/種目解説中心で、執筆ルール「フォーム・種目解説を主役にしない」に抵触。
+- episode100（成長する5つの仕組み）：episode74と同様、5フェーズ総覧で`kintore-kekka-denai-riyuu.md`と同内容（CTA文言までほぼ同一）。
+- episode101（筋トレ新常識5選）：RIR・スロートレーニング・レベル分け・器具・重量更新など、5項目すべてがフォーム/テンポ/器具中心で、除外方針に抵触。ACSM改訂という出典の実在確認も行っていない。
+
+**結果：「未使用」セクションに残る7本は全て使用不可。次回以降のジョブのため、`source-scripts/`に新しい台本の追加が必要。**
+
 ## 除外方針
 
 - 痛み・ケガ系のテーマは対象外（`content/keyword-queue.md`と同じ理由）
