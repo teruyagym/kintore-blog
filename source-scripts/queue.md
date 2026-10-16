@@ -5,7 +5,23 @@
 
 **重要：台本をそのままコピーしない。** 話し言葉（「ではここから見ていきます」等のナレーション表現）を削除し、SEOキーワードを意識した見出し構成に再構成し、written article として自然な文体に書き直すこと。既存の`content/posts/`内の記事を文体・構成の参考にする。
 
+**検索で読まれるための追加ルール（2026-10-16）：** 既存18記事の大半が「〜なのに筋肉が増えない（結果が出ない）理由」の言い換えになっており、Googleに同じ内容の記事と判断されてインデックスされていない（19記事中6記事のみ登録）。新しい記事は、
+- タイトルを「筋肉が増えない／結果が出ない理由」の型にしない
+- 実際に検索される具体的な言葉（例：「クレアチン 5g 効果 いつから」「ソイプロテイン 男性ホルモン」）をタイトルの先頭近くに入れる
+- 「盲点」「本当の理由」などの抽象的な言葉だけで終わらせない
+
 ## 未使用
+
+<!-- 2026-10-16追加：使える台本が尽きたため、新しい台本を優先順に追加。上から順に検討すること -->
+- 2026-10-13-episode124-creatine-5g-timeline.md（クレアチンを毎日5g飲むと体に起きること、摂取フェーズ）※既存記事にクレアチンの主題なし
+- 2026-09-17-episode113-soy-protein-gokai.md（ソイプロテインで男性ホルモンが下がるは本当か、摂取フェーズ）※植物性タンパクの検索表示あり
+- 2026-09-08-episode109-kinhidai-mecha-tension-shikumi.md（筋肉が育つ本当の仕組み＝メカニカルテンション、刺激フェーズ）※`kintore-koka-sa-shigeki-no-shitsu.md`との重複に注意。仕組み（筋肉が張力を感知する分子の流れ）を主役にする
+- 2026-09-29-episode118-kintore-go-24jikan-kaifuku-15sen.md（筋トレ後24時間の回復、回復フェーズ）※時間軸で整理する。`mainichi-kintore-kinniku-fuenai.md`との重複に注意
+- 2026-09-13-episode111-yasumubeki-sign-7sen.md（休むべき7つのサイン、回復フェーズ）※`oikomisugi-kinnikutsuu-kinniku-fuenai.md`との重複に注意
+- 2026-09-19-episode115-kaifuku-senryaku-15sen.md（回復戦略15選、回復フェーズ）
+- 2026-10-12-episode123-kinniku-tsukiyasui-hito-tokucho-10sen.md（筋肉がつきやすい人の特徴10選、総合）※`kintore-seika-deru-hito-denai-hito.md`との重複に注意
+- 2026-10-04-episode120-shoshinsha-ni-modoretara-10sen.md（筋トレ初心者に戻れたら最初にやること10選、総合）
+- 2026-08-26-protein-ng-nomikata-7sen.md（プロテインのNGな飲み方7選、摂取フェーズ）※`tanpakushitsu-tottemo-kinniku-tsukanai.md`との重複に注意
 
 - episode63-protein-2g-muda.md（プロテイン体重×2gは無駄、摂取フェーズ）
 - episode74-kinpidai-kanzen-kouryaku.md（筋肥大完全攻略、総合）
