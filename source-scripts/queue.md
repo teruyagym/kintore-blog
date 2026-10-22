@@ -13,7 +13,6 @@
 ## 未使用
 
 <!-- 2026-10-16追加：使える台本が尽きたため、新しい台本を優先順に追加。上から順に検討すること -->
-- 2026-09-17-episode113-soy-protein-gokai.md（ソイプロテインで男性ホルモンが下がるは本当か、摂取フェーズ）※植物性タンパクの検索表示あり
 - 2026-09-08-episode109-kinhidai-mecha-tension-shikumi.md（筋肉が育つ本当の仕組み＝メカニカルテンション、刺激フェーズ）※`kintore-koka-sa-shigeki-no-shitsu.md`との重複に注意。仕組み（筋肉が張力を感知する分子の流れ）を主役にする
 - 2026-09-29-episode118-kintore-go-24jikan-kaifuku-15sen.md（筋トレ後24時間の回復、回復フェーズ）※時間軸で整理する。`mainichi-kintore-kinniku-fuenai.md`との重複に注意
 - 2026-09-13-episode111-yasumubeki-sign-7sen.md（休むべき7つのサイン、回復フェーズ）※`oikomisugi-kinnikutsuu-kinniku-fuenai.md`との重複に注意
@@ -31,6 +30,8 @@
 - episode101-shinjoushiki-5sen.md（筋トレの新常識5選、総合）
 
 ## 使用済み
+
+- 2026-09-17-episode113-soy-protein-gokai.md（ソイプロテインで男性ホルモンが下がるは本当か、摂取フェーズ）→ 2026-10-22公開: content/posts/soy-protein-dansei-hormone-sageru.md（台本のホルモン誤解訂正パートを軸に、イソフラボンの仕組み・甲状腺への注意・ホエイとの筋肉のつきやすさの比較・消化吸収（ラフィノース/スタキオース）・選び方の判断基準として再構成。台本中のPMID・大学名は自動生成字幕由来のため使わず、WebSearchで実在確認した一次資料（Reed et al. 2021, Tang et al. 2009, Lynch et al. 2020, Messina et al. 2018, Hughes et al. 2011, 内閣府食品安全委員会2006）に差し替えた）
 
 - 2026-10-13-episode124-creatine-5g-timeline.md（クレアチンを毎日5g飲むと体に起きること、摂取フェーズ）→ 2026-10-16公開: content/posts/creatine-5g-koka-itsukara.md（台本の時間軸構成を軸に、クレアチンの仕組み・体重増加の誤解・腎臓・薄毛への不安・40代50代での意味・飲み方・30日間の自己実験として再構成。薄毛RCTはLak et al. 2025, 腎機能はKabiri Naeini et al. 2025, 筋力の上乗せはWang et al. 2024の実数値を使用。台本中のPMID（Desai 39074168, Forbes 39519498, Tsiaras 42035842, Forbes 37300116）はWebSearchでの実在確認に失敗または著者名の不一致があったため、正しいPMID・著者名を再確認した上で採用または除外した）
 
